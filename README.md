@@ -3,7 +3,7 @@
 > This is a Front-end Developer Test of **www.mashupgarage.com**
 > to validate credit cards (manually & automatically) made in **React** `create-react-app`
 
-[Demo](https://github.com/sl1mpshady/devtest)
+[Demo](https://sl1mpshady.github.io/devtest/index.html)
 
 ### Install
 
@@ -19,6 +19,7 @@ npm install
 
 * [React](https://reactjs.org/)
 * [react-credit-cards](https://github.com/amarofashion/react-credit-cards) for the credit card component
+
   ```jsx
   import Cards from 'react-credit-cards';
   ...
@@ -30,20 +31,25 @@ npm install
      cvc={input.cvc.value}
      focused={state.focused}
    />
+  ```
 
 * [creditcardutils](https://www.npmjs.com/package/creditcardutils) for the formatting
-  ```jsx
+
+  ````jsx
   import creditcardutils from "creditcardutils";
   ...
 
   creditcardutils.formatCardNumber(cardNumber);```
+  ````
 
 - [fast-luhn](https://www.npmjs.com/package/fast-luhn) for the validation
-  ```jsx
+
+  ````jsx
   import creditcardutils from "creditcardutils";
   ...
 
   luhn(cardNumber); ```
+  ````
 
 ### [Problem](https://github.com/rstacruz/frontend-exercises/tree/master/order-form)
 
