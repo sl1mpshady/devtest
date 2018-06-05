@@ -39,7 +39,7 @@ npm install
   import creditcardutils from "creditcardutils";
   ...
 
-  creditcardutils.formatCardNumber(cardNumber);```
+  creditcardutils.formatCardNumber(cardNumber);
   ````
 
 - [fast-luhn](https://www.npmjs.com/package/fast-luhn) for the validation
