@@ -39,7 +39,7 @@ npm install
   import creditcardutils from "creditcardutils";
   ...
 
-  creditcardutils.formatCardNumber(cardNumber);```
+  creditcardutils.formatCardNumber(cardNumber);
   ````
 
 - [fast-luhn](https://www.npmjs.com/package/fast-luhn) for the validation
@@ -48,7 +48,7 @@ npm install
   import creditcardutils from "creditcardutils";
   ...
 
-  luhn(cardNumber); ```
+  luhn(cardNumber);
   ````
 
 ### [Problem](https://github.com/rstacruz/frontend-exercises/tree/master/order-form)
