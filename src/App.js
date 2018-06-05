@@ -149,7 +149,9 @@ class App extends Component {
       property: {
         "og:title": "Front-end Developer Test",
         "og:url": "https://sl1mpshady.github.io/devtest/",
-        "og:image": encodeURI("https://sl1mpshady.github.io/devtest/card.png"),
+        "og:image": encodeURI(
+          "https://github.com/sl1mpshady/devtest/blob/gh-pages/card.png"
+        ),
         "og:description":
           "This is a Front-end Developer Test of www.mashupgarage.com to validate credit cards (manually & automatically) made in React create-react-app",
 
@@ -158,7 +160,7 @@ class App extends Component {
         "twitter:description":
           "This is a Front-end Developer Test of www.mashupgarage.com to validate credit cards (manually & automatically) made in React create-react-app",
         "twitter:image": encodeURI(
-          "https://sl1mpshady.github.io/devtest/card.png"
+          "https://github.com/sl1mpshady/devtest/blob/gh-pages/card.png"
         )
       }
     }
