@@ -48,7 +48,7 @@ npm install
   import creditcardutils from "creditcardutils";
   ...
 
-  luhn(cardNumber); ```
+  luhn(cardNumber);
   ````
 
 ### [Problem](https://github.com/rstacruz/frontend-exercises/tree/master/order-form)
