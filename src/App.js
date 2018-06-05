@@ -5,7 +5,6 @@ import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import creditcardutils from "creditcardutils";
 import luhn from "fast-luhn";
-import DocumentMeta from "react-document-meta";
 
 class App extends Component {
   constructor(props) {
@@ -136,130 +135,98 @@ class App extends Component {
     e.preventDefault();
   };
 
-  meta = {
-    title: "Front-end Developer Test",
-    description:
-      "This is a Front-end Developer Test of www.mashupgarage.com to validate credit cards (manually & automatically) made in React create-react-app",
-    canonical: "http://example.com/path/to/page",
-    meta: {
-      charset: "utf-8",
-      name: {
-        keywords: "credit-card, html, react"
-      },
-      property: {
-        "og:title": "Front-end Developer Test",
-        "og:url": "https://sl1mpshady.github.io/devtest/",
-        "og:image": encodeURI(
-          "https://github.com/sl1mpshady/devtest/blob/gh-pages/card.png"
-        ),
-        "og:description":
-          "This is a Front-end Developer Test of www.mashupgarage.com to validate credit cards (manually & automatically) made in React create-react-app",
-
-        "twitter:card": "card_image",
-        "twitter:title": "Front-end Developer Test",
-        "twitter:description":
-          "This is a Front-end Developer Test of www.mashupgarage.com to validate credit cards (manually & automatically) made in React create-react-app",
-        "twitter:image": encodeURI(
-          "https://github.com/sl1mpshady/devtest/blob/gh-pages/card.png"
-        )
-      }
-    }
-  };
-
   render() {
     return (
-      <DocumentMeta {...this.meta}>
-        <div className="container">
-          <div className="col-xs-12 col-sm-6 col-sm-offset-3">
-            <div className="page-header">
-              <h1>Order now</h1>
-            </div>
+      <div className="container">
+        <div className="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div className="page-header">
+            <h1>Order now</h1>
+          </div>
 
-            <div className="panel">
-              <div className="panel-body">
-                <Cards
-                  number={this.state.cardNumber}
-                  name={this.state.cardName}
-                  expiry={this.state.cardExpiry}
-                  cvc={this.state.cardCvv}
-                  focused={this.state.focus}
-                />
-                <br />
-                <form>
-                  <div className="form-group">
-                    <label>Credit card number:</label>
-                    <div className="input-group">
-                      <input
-                        onChange={this.cardChange}
-                        type="text"
-                        className="form-control"
-                        id="card"
-                        value={this.state.cardNumber}
-                      />
-                      <div className="input-group-addon" id="type">
-                        {this.state.valid !== 2 ? (
-                          this.state.cardType
-                        ) : (
-                          <span>
-                            <span className="glyphicon glyphicon-remove text-danger" />
-                            &nbsp;
-                            <span>Invalid</span>
-                          </span>
-                        )}
-                        &nbsp;
-                        {this.state.cardValid && this.state.valid !== 2 ? (
-                          <span className="glyphicon glyphicon-ok text-success" />
-                        ) : (
-                          ""
-                        )}
-                      </div>
+          <div className="panel">
+            <div className="panel-body">
+              <Cards
+                number={this.state.cardNumber}
+                name={this.state.cardName}
+                expiry={this.state.cardExpiry}
+                cvc={this.state.cardCvv}
+                focused={this.state.focus}
+              />
+              <br />
+              <form>
+                <div className="form-group">
+                  <label>Credit card number:</label>
+                  <div className="input-group">
+                    <input
+                      onChange={this.cardChange}
+                      type="text"
+                      className="form-control"
+                      id="card"
+                      value={this.state.cardNumber}
+                    />
+                    <div className="input-group-addon" id="type">
+                      {this.state.valid !== 2 ? (
+                        this.state.cardType
+                      ) : (
+                        <span>
+                          <span className="glyphicon glyphicon-remove text-danger" />
+                          &nbsp;
+                          <span>Invalid</span>
+                        </span>
+                      )}
+                      &nbsp;
+                      {this.state.cardValid && this.state.valid !== 2 ? (
+                        <span className="glyphicon glyphicon-ok text-success" />
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
-                  <div className="form-group">
-                    <label>Name on card:</label>
+                </div>
+                <div className="form-group">
+                  <label>Name on card:</label>
+                  <input
+                    value={this.state.cardName}
+                    onChange={this.nameChange}
+                    type="text"
+                    className="form-control"
+                  />
+                </div>
+                <div className="clearfix">
+                  <div className="form-group form-group-mini">
+                    <label>Expiry date:</label>
                     <input
-                      value={this.state.cardName}
-                      onChange={this.nameChange}
+                      value={this.state.cardExpiry}
+                      onChange={this.expireChange}
+                      onKeyDown={this.expireKeyDown}
                       type="text"
                       className="form-control"
                     />
                   </div>
-                  <div className="clearfix">
-                    <div className="form-group form-group-mini">
-                      <label>Expiry date:</label>
-                      <input
-                        value={this.state.cardExpiry}
-                        onChange={this.expireChange}
-                        onKeyDown={this.expireKeyDown}
-                        type="text"
-                        className="form-control"
-                      />
-                    </div>
-                    <div className="form-group form-group-mini">
-                      <label>CVV:</label>
-                      <input
-                        value={this.state.cardCvv}
-                        onChange={this.cvvChange}
-                        type="text"
-                        className="form-control"
-                      />
-                    </div>
+                  <div className="form-group form-group-mini">
+                    <label>CVV:</label>
+                    <input
+                      value={this.state.cardCvv}
+                      onChange={this.cvvChange}
+                      type="text"
+                      className="form-control"
+                    />
                   </div>
-                  <br />
-                  <p>
-                    <button
-                      onClick={this.luhnValidate}
-                      className="btn btn-primary"
-                    >
-                      Validate using Luhn Algorithm
-                    </button>
-                  </p>
-                </form>
-              </div>
+                </div>
+                <br />
+                <p>
+                  <button
+                    onClick={this.luhnValidate}
+                    className="btn btn-primary"
+                  >
+                    Validate using Luhn Algorithm
+                  </button>
+                </p>
+              </form>
             </div>
           </div>
         </div>
-      </DocumentMeta>
+      </div>
     );
   }
 }
