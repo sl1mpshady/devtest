@@ -166,7 +166,7 @@ class App extends Component {
 
   render() {
     return (
-      <DocumentMeta {...meta}>
+      <DocumentMeta {...this.meta}>
         <div className="container">
           <div className="col-xs-12 col-sm-6 col-sm-offset-3">
             <div className="page-header">
